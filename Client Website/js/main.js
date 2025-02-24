@@ -1,85 +1,84 @@
-// Get the menu button element by its ID
-const menuBtn = document.getElementById("menu-btn");
+$(document).ready(function() {
+  // Cache jQuery selections
+  const $menuBtn = $("#menu-btn");
+  const $navLinks = $("#nav-links");
+  const $menuBtnIcon = $menuBtn.find("i");
 
-// Get the navigation links container element by its ID
-const navLinks = document.getElementById("nav-links");
+  // Add a click event listener to the menu button
+  $menuBtn.on("click", function() {
+    // Toggle the 'open' class on the navigation links container
+    $navLinks.toggleClass("open");
 
-// Get the icon element inside the menu button
-const menuBtnIcon = menuBtn.querySelector("i");
+    // Check if the navigation links container has the 'open' class
+    const isOpen = $navLinks.hasClass("open");
 
-// Add a click event listener to the menu button
-menuBtn.addEventListener("click", (e) => {
-  // Toggle the 'open' class on the navigation links container
-  navLinks.classList.toggle("open");
+    // Set the icon class based on whether the navigation links container is open or not
+    $menuBtnIcon.attr("class", isOpen ? "ri-close-line" : "ri-menu-line");
+  });
 
-  // Check if the navigation links container has the 'open' class
-  const isOpen = navLinks.classList.contains("open");
+  // Add a click event listener to the navigation links container
+  $navLinks.on("click", function() {
+    // Remove the 'open' class from the navigation links container
+    $navLinks.removeClass("open");
 
-  // Set the icon class based on whether the navigation links container is open or not
-  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
-});
+    // Set the icon class to the menu icon
+    $menuBtnIcon.attr("class", "ri-menu-line");
+  });
 
-// Add a click event listener to the navigation links container
-navLinks.addEventListener("click", (e) => {
-  // Remove the 'open' class from the navigation links container
-  navLinks.classList.remove("open");
+  // ScrollReveal options
+  const scrollRevealOption = {
+    distance: "50px",
+    origin: "bottom",
+    duration: 1000,
+  };
 
-  // Set the icon class to the menu icon
-  menuBtnIcon.setAttribute("class", "ri-menu-line");
-});
+  // Apply ScrollReveal to elements
+  ScrollReveal().reveal(".header__image img", {
+    ...scrollRevealOption,
+    origin: "right",
+  });
+  ScrollReveal().reveal(".header__content h1", {
+    ...scrollRevealOption,
+    delay: 500,
+  });
+  ScrollReveal().reveal(".header__content h2", {
+    ...scrollRevealOption,
+    delay: 1000,
+  });
+  ScrollReveal().reveal(".header__btn", {
+    ...scrollRevealOption,
+    delay: 1500,
+  });
 
+  ScrollReveal().reveal(".about__image img", {
+    ...scrollRevealOption,
+    origin: "left",
+  });
+  ScrollReveal().reveal(".about__content .section__header", {
+    ...scrollRevealOption,
+    delay: 500,
+  });
+  ScrollReveal().reveal(".about__content p", {
+    ...scrollRevealOption,
+    delay: 1000,
+    interval: 500,
+  });
+  ScrollReveal().reveal(".about__btn", {
+    ...scrollRevealOption,
+    delay: 2000,
+  });
 
-const scrollRevealOption = {
-  distance: "50px",
-  origin: "bottom",
-  duration: 1000,
-};
+  ScrollReveal().reveal(".blog__card", {
+    duration: 1000,
+    interval: 500,
+  });
 
-ScrollReveal().reveal(".header__image img", {
-  ...scrollRevealOption,
-  origin: "right",
-});
-ScrollReveal().reveal(".header__content h1", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".header__content h2", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-ScrollReveal().reveal(".header__btn", {
-  ...scrollRevealOption,
-  delay: 1500,
-});
+  ScrollReveal().reveal(".blog__btn", {
+    ...scrollRevealOption,
+    delay: 2000,
+  });
 
-ScrollReveal().reveal(".about__image img", {
-  ...scrollRevealOption,
-  origin: "left",
-});
-ScrollReveal().reveal(".about__content .section__header", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".about__content p", {
-  ...scrollRevealOption,
-  delay: 1000,
-  interval: 500,
-});
-ScrollReveal().reveal(".about__btn", {
-  ...scrollRevealOption,
-  delay: 2000,
-});
-
-ScrollReveal().reveal(".blog__card", {
-  duration: 1000,
-  interval: 500,
-});
-
-ScrollReveal().reveal(".blog__btn", {
-  ...scrollRevealOption,
-  delay: 2000,
-});
-
-ScrollReveal().reveal(".contact__image img", {
-  ...scrollRevealOption,
+  ScrollReveal().reveal(".contact__image img", {
+    ...scrollRevealOption,
+  });
 });
