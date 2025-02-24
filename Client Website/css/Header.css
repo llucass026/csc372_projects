@@ -1,0 +1,14 @@
+.header__container {
+    text-align: center;
+    padding: 50px 20px;
+    background: url('/Images/Alternative.jpg') no-repeat center center/cover;
+    color: #fff;
+  }
+  
+  .header__btn .btn {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
