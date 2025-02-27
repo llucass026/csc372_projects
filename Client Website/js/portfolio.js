@@ -19,7 +19,6 @@ $(document).ready(function() {
       
       // Append the lightbox to the body
       $('body').append(lightbox);
-      
       // Fade in the lightbox
       $('.lightbox').fadeIn();
   
